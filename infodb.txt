@@ -1,0 +1,23 @@
+(en este caso es un crud para contactos, contactos es el objeto a almacenar)
+
+con microsoft sql server instalado, hacer una base de datos y ejecutar la consulta en esta misma carpeta
+
+cada tabla sera un modelo.cs en el proyecto de asp.net core dentro de la carpeta de models
+
+en el archivo appsettings.json hay que especificar la propiedad con el nombre de la base de datos
+
+hay que instalar con NuGet System.Data.SqlClient
+
+la carpeta Datos y su contenido hesta hecho manualmente toda desde 0
+
+en la carpeta Controllers crear un controlador de tipo controlador mvc vacio (el nombre debe acabar en Controller.cs)
+esto devolvera una vista (cshtml) con el mimso nombre
+desde aqui, en la funcion de listar se hace click derecho y nueva vista razor (no cambiar el nombre ni plantilla) y en pagina de diseño "views/shared/_layout.cshtml"
+
+las paginas se componen de varias vistas, las de la carpeta shared apareceran siempre(html con barras de menu, etc) y se acoplaran con otras (cada pagina por separado) (al crear vists se le puede especificar una vista de disegno, que suele ser la de shared)
+
+las vistas/formularios son htmls especiales y ademas usan bootstrap5 (para que se actualice al actualizar la pagina instalar runtimecompilation razor)
+
+razor sirve para implementar codigo c# a html (.cshtml) y se usa con @<lo que sea> (similar a reactjs) esto se suele usar para dibujar y enviar datos de db y formularios
+
+https://www.youtube.com/watch?v=qcRCDM5KiSo&t=4875s

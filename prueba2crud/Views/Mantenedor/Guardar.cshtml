@@ -1,0 +1,35 @@
+﻿@model ContactoModel//usar algo de otro sitio/importar en cshtml
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Guardar</h1>
+<!--el formulario:-->
+<div class="card">
+    <div class="card-header">
+        crear contacto
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Mantenedor" method="POST"><!--especificar el nombre de la accion y del controlador para llamar a la funcion del controlador-->
+            <div class="mb-3">
+                <label class="form-label">nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control"><!--asp-for se importa gracias a la linea 1, esto especifica la parte de la tabla de la db-->
+                <span asp-validation-for="Nombre" class="text-danger"></span><!--aqui aparecera el error en caso de que la validacion sea incorrecta-->
+            </div>
+            <div class="mb-3">
+                <label class="form-label">telefono</label>
+                <input asp-for="Telefono" type="text" class="form-control">
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">correo</label>
+                <input asp-for="Correo" type="text" class="form-control">
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">volver a la lista</a><!--un enlace que ejecuta una accion (en este caso lleva a listar())-->
+        </form>
+    </div>
+</div>
+<script>console.log("prueba");</script>

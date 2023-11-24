@@ -1,0 +1,42 @@
+﻿@model List<ContactoModel>//se va a usar este tipo de dato para dibujar en este html (se hace con razor, razor implementa c# en html)
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Listar</h1>
+
+<div class="card">
+    <div class="card-header">
+        lista de contactos
+    </div>
+    <div class="card-body">
+        
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-warning">crear nuevo</a><!--un enlace que ejecuta una accion (en este caso lleva a guardar())-->
+        <hr/><!--las etiquetas sin cierre se hacen asi (similar a reactjs)-->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)//implementando el bucle foreach de c# en html, usando la lista de ContactoModel de arriba del todo
+                {
+                    <tr>
+                        <td>@item.Nombre</td><!--dibujando propiedades de una variable de c#-->
+                        <td>@item.Telefono</td>
+                        <td>@item.Correo</td>
+                        <td><!--botones de borrar y editar-->
+                            <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-small" asp-route-Idcontacto="@item.IdContacto">editar</a><!--enlace que ejecuta una accion, en este caso envia parametros (editar())-->
+                            <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-small" asp-route-Idcontacto="@item.IdContacto">eliminar</a><!--igual pero para eliminar-->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
